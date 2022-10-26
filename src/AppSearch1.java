@@ -2,7 +2,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class AppSearch {
+public class AppSearch1 {
     public void SearchFunction(Statement statement) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("---------------------------------------------------");
@@ -21,14 +21,14 @@ public class AppSearch {
                 if (name.equals("관리자") && (password.equals("password6"))) {
                     System.out.print("전체설문내역을 출력합니다.");
                     System.out.println("----------------------------------------");
-                    query = "SELECT * FROM survey;";
+                    query = "SELECT user.NAME, user.USER_ID, answer.ANSWER, survey.QUESTION_ID, question.QUESTION FROM survey " +
+                    " INNER JOIN user on user.USER_ID = survey.USER_ID INNER JOIN question ON question.QUESTION_ID = survey.QUESTION_ID INNER JOIN answer ON answer.ANSWER_ID = survey.ANSWER_ID;";
                     ResultSet resultSet1 = statement.executeQuery(query);
                     if (resultSet1.isBeforeFirst()) {
                         while (resultSet1.next()) {
                             System.out.println();
-                            System.out.print("USER_ID :" + resultSet1.getString("USER_ID"));
-                            System.out.print(", ANSWER_ID :" + resultSet1.getString("ANSWER_ID"));
-                            System.out.print(", QUESTION_ID :" + resultSet1.getString("QUESTION_ID"));
+                            System.out.print("설문내용 :" + resultSet1.getString("question.QUESTION") + "\n");
+                            System.out.print("답항 :" + resultSet1.getString("answer.ANSWER"));
                             System.out.println("");
                         }
 
@@ -45,9 +45,9 @@ public class AppSearch {
                     if (resultSet2.isBeforeFirst()) {
                         System.out.println(name + "님의 설문내역입니다." + "\n");
                         while (resultSet2.next()) {
-                            System.out.print("성함 :" + resultSet2.getString("user.NAME"));
-                            System.out.print(",설문내용 :" + resultSet2.getString("question.QUESTION"));
-                            System.out.print(", 답항 :" + resultSet2.getString("answer.ANSWER"));
+                           
+                            System.out.print("설문내용 :" + resultSet2.getString("question.QUESTION") + "\n");
+                            System.out.print("답항 :" + resultSet2.getString("answer.ANSWER"));
                             System.out.println("");
                         }
                     }

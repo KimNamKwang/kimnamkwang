@@ -35,7 +35,7 @@ public class AppMain {
         //    AppDeleteAll_Nam appDeleteall = new AppDeleteAll_Nam();
         //    appDeleteall.DeleteAllFunction(statement);
            
-           AppSearch appSearch = new AppSearch();
+           AppSearch1 appSearch = new AppSearch1();
            appSearch.SearchFunction(statement);
 
 
