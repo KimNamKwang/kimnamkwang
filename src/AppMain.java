@@ -27,9 +27,18 @@ public class AppMain {
         //    AppSelect appSelect = new AppSelect();
         //    appSelect.SelectFunction(statement);
 
-           AppDelete appDelete = new AppDelete();
-           appDelete.DeleteFunction(statement);
+            //개인설문내역 삭제
+        //    AppDelete appDelete = new AppDelete();
+        //    appDelete.DeleteFunction(statement);
+
+            //전체설문내역삭제
+        //    AppDeleteAll_Nam appDeleteall = new AppDeleteAll_Nam();
+        //    appDeleteall.DeleteAllFunction(statement);
            
+           AppSearch appSearch_Nam = new AppSearch();
+           appSearch_Nam.SearchFunction(statement);
+
+
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
