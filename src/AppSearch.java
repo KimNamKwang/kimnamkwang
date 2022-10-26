@@ -25,6 +25,7 @@ public class AppSearch {
                     ResultSet resultSet1 = statement.executeQuery(query);
                     if (resultSet1.isBeforeFirst()) {
                         while (resultSet1.next()) {
+                            System.out.print(name + "님의 설문내역입니다.");
                             System.out.print("USER_ID :" + resultSet1.getString("USER_ID"));
                             System.out.print(", ANSWER_ID :" + resultSet1.getString("ANSWER_ID"));
                             System.out.print(", QUESTION_ID :" + resultSet1.getString("QUESTION_ID"));
